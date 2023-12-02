@@ -5,6 +5,6 @@ The app is a platform that allows users to create and participate in events.
 - Next.js
 - TypeScript
 - TailwindCSS
-- NextAuth.js
+- Auth.js(Next-Auth)
 - Go
 - Prisma.js
