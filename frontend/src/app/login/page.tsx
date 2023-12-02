@@ -1,19 +1,9 @@
-'use client';
-
 import { LoginButton, LogoutButton } from "@/app/components/buttons";
-import {useSession} from "next-auth/react";
-import {NextAuthProvider} from "@/app/providers";
+import {getServerSession} from "next-auth/next";
+import {options} from "@/app/options";
 
 export default async function Home() {
-    return (
-        <NextAuthProvider>
-            <ClientHome/>
-        </NextAuthProvider>
-    )
-}
-
-function ClientHome() {
-    const {data: session} = useSession();
+    const session = await getServerSession(options)
     const user = session?.user // ログインしていなければnullになる。
 
     return (
@@ -24,5 +14,4 @@ function ClientHome() {
             </div>
          </header>
     );
-
 }
